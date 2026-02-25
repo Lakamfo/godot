@@ -1357,7 +1357,6 @@ PackedStringArray Node3D::get_configuration_warnings() const {
 	return warnings;
 }
 
-
 void Node3D::_validate_property(PropertyInfo &p_property) const {
 	if (data.rotation_edit_mode != ROTATION_EDIT_MODE_BASIS && p_property.name == "basis") {
 		p_property.usage = PROPERTY_USAGE_NONE;
