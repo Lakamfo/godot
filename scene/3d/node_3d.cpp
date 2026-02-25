@@ -32,11 +32,10 @@
 
 #include "core/math/transform_interpolator.h"
 #include "scene/3d/visual_instance_3d.h"
-#include "scene/main/viewport.h"
 #include "scene/property_utils.h"
 #include "scene/main/window.h"
 
-		/*
+/*
 
  possible algorithms:
 
@@ -1352,10 +1351,10 @@ NodePath Node3D::get_visibility_parent() const {
 PackedStringArray Node3D::get_configuration_warnings() const {
 	PackedStringArray warnings = Node::get_configuration_warnings();
 	Node *parent = get_parent();
-	if (parent && !Object::cast_to<Node3D>(parent) && parent != get_tree()->get_root() && get_owner() != nullptr) {
+	if (parent && !Object::cast_to<Node3D>(parent) && parent != get_tree()->get_root() && get_owner()) {
 		warnings.push_back(
-				RTR("This Node3D is a child of a Node that has no Transform. "
-					"It will not inherit a 3D transform."));
+			RTR("This Node3D is a child of a Node that has no Transform. \nIt will not inherit a 3D transform.")
+		);
 	}
 	return warnings;
 }
